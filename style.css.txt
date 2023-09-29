@@ -1,0 +1,22 @@
+/* style.css */
+
+/* Styles pour le bouton */
+.chat-button {
+    background-color: #298ED6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Couleur de fond de la fenêtre de chat */
+.chat-window {
+    background-color: #298ED6;
+}
+
+/* Couleur du bouton de fermeture */
+.close-button {
+    color: #FF9814;
+}
+
+/* Autres styles de chat à personnaliser selon vos besoins */
