@@ -34,6 +34,16 @@ function afficherMessageChatbot(message) {
     messageElement.scrollIntoView({ behavior: "smooth" });
 }
 
+// Fonction pour afficher un message de l'utilisateur dans la conversation
+function afficherMessageUtilisateur(message) {
+    const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit" });
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('chatbot-message', 'user-message');
+    messageElement.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${message}</p>`;
+    conversation.appendChild(messageElement);
+    messageElement.scrollIntoView({ behavior: "smooth" });
+}
+
 // Fonction pour commencer la série de questions
 function commencerQuestions() {
     // Vous pouvez poser la première question ici
@@ -50,6 +60,9 @@ function poserQuestion(question) {
     message.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${question}</p>`;
     conversation.appendChild(message);
     message.scrollIntoView({ behavior: "smooth" });
+
+    // Mettre à jour la variable question
+    this.question = question;
 
     // Ajouter un gestionnaire d'événements pour gérer la réponse de l'utilisateur
     inputForm.addEventListener('submit', function(event) {
