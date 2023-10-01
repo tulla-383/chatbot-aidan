@@ -71,15 +71,19 @@ startButton.addEventListener('click', function() {
 
 // Fonction pour commencer la série de questions
 function commencerQuestions() {
-  // Vous pouvez maintenant poser des questions spécifiques à l'utilisateur et collecter ses réponses.
-  // Par exemple, commencez par demander son secteur d'activité.
+  // Poser la première question à l'utilisateur
   const secteurActivite = prompt("Quel est votre secteur d'activité ?");
-  
+
   if (secteurActivite) {
-    // Vous pouvez continuer à poser des questions en fonction de la réponse de l'utilisateur ici.
+    // Ajouter la question et la réponse à la conversation
+    ajouterMessage("user", secteurActivite);
+
+    // Vous pouvez maintenant continuer à poser des questions en fonction de la réponse de l'utilisateur ici.
     if (secteurActivite === "restaurant") {
       const nomRestaurant = prompt("Quel est le nom de votre restaurant ?");
+      ajouterMessage("user", nomRestaurant);
       const descriptionMenu = prompt("Pouvez-vous décrire votre menu ?");
+      ajouterMessage("user", descriptionMenu);
       // Continuez avec d'autres questions pour les restaurants...
     } else if (secteurActivite === "airbnb") {
       // Posez des questions spécifiques aux propriétaires Airbnb...
@@ -91,6 +95,19 @@ function commencerQuestions() {
       // Si le secteur d'activité n'est pas reconnu, vous pouvez gérer cela ici.
       alert("Désolé, nous ne prenons pas encore en charge ce secteur d'activité, mais nous prendrons en compte votre demande !");
     }
+  }
+}
+
+// Fonction pour ajouter un message à la conversation
+function ajouterMessage(sender, message) {
+  const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit" });
+  let messageElement = document.createElement('div');
+  messageElement.classList.add('chatbot-message', sender + '-message');
+  messageElement.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${message}</p>`;
+  conversation.appendChild(messageElement);
+  messageElement.scrollIntoView({ behavior: "smooth" });
+}
+
   }
 }
 
