@@ -71,43 +71,45 @@ startButton.addEventListener('click', function() {
 
 // Fonction pour commencer la série de questions
 function commencerQuestions() {
-  // Poser la première question à l'utilisateur
-  const secteurActivite = prompt("Quel est votre secteur d'activité ?");
+  // Vous pouvez poser la première question ici
+  poserQuestion("Quel est votre secteur d'activité ?");
+}
 
-  if (secteurActivite) {
-    // Ajouter la question et la réponse à la conversation
-    ajouterMessage("user", secteurActivite);
+// Fonction pour poser une question à l'utilisateur
+function poserQuestion(question) {
+  // Afficher la question dans la boîte de dialogue d'Aidan
+  ajouterMessage("chatbot", question);
 
-    // Vous pouvez maintenant continuer à poser des questions en fonction de la réponse de l'utilisateur ici.
-    if (secteurActivite === "restaurant") {
-      const nomRestaurant = prompt("Quel est le nom de votre restaurant ?");
-      ajouterMessage("user", nomRestaurant);
-      const descriptionMenu = prompt("Pouvez-vous décrire votre menu ?");
-      ajouterMessage("user", descriptionMenu);
-      // Continuez avec d'autres questions pour les restaurants...
-    } else if (secteurActivite === "airbnb") {
-      // Posez des questions spécifiques aux propriétaires Airbnb...
-    } else if (secteurActivite === "location de voitures") {
-      // Posez des questions spécifiques aux loueurs de voitures...
-    } else if (secteurActivite === "supermarché") {
-      // Posez des questions spécifiques aux supermarchés...
+  // Ajouter un gestionnaire d'événements pour gérer la réponse de l'utilisateur
+  inputForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const reponseUtilisateur = inputField.value;
+
+    // Afficher la réponse de l'utilisateur dans la boîte de dialogue
+    ajouterMessage("user", reponseUtilisateur);
+
+    // Vous pouvez maintenant traiter la réponse de l'utilisateur
+    // et poser la question suivante en fonction de sa réponse.
+
+    // Exemple : poser la question suivante
+    if (reponseUtilisateur === "restaurant") {
+      poserQuestion("Quel est le nom de votre restaurant ?");
+    } else if (reponseUtilisateur === "airbnb") {
+      // Poser des questions spécifiques aux propriétaires Airbnb...
+    } else if (reponseUtilisateur === "location de voitures") {
+      // Poser des questions spécifiques aux loueurs de voitures...
+    } else if (reponseUtilisateur === "supermarché") {
+      // Poser des questions spécifiques aux supermarchés...
     } else {
       // Si le secteur d'activité n'est pas reconnu, vous pouvez gérer cela ici.
-      alert("Désolé, nous ne prenons pas encore en charge ce secteur d'activité, mais nous prendrons en compte votre demande !");
+      ajouterMessage("chatbot", "Désolé, nous ne prenons pas encore en charge ce secteur d'activité, mais nous prendrons en compte votre demande !");
+      // Poser une question différente ou terminer la conversation, selon votre logique.
     }
-  }
-}
 
-// Fonction pour ajouter un message à la conversation
-function ajouterMessage(sender, message) {
-  const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit" });
-  let messageElement = document.createElement('div');
-  messageElement.classList.add('chatbot-message', sender + '-message');
-  messageElement.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${message}</p>`;
-  conversation.appendChild(messageElement);
-  messageElement.scrollIntoView({ behavior: "smooth" });
+    // Effacer le champ de saisie
+    inputField.value = '';
+  });
 }
-
   }
 }
 
