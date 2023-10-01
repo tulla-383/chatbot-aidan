@@ -91,15 +91,17 @@ message-container {
 
 #input-field {
     flex: 1;
-    height: 60px;
+    height: 80px; /* Ajustez la hauteur selon vos besoins */
+    border: 1px solid #eef1f5;
     border-radius: 4px;
     padding: 0 10px;
     font-size: 14px;
     transition: border-color 0.3s;
-    background: #FFFFFF; /* Fond blanc */
-    color: #000000; /* Texte en noir */
+    background: #ffffff;
+    color: #333333;
     border: none;
 }
+
 
 #submit-button {
     background-color: transparent;
