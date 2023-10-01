@@ -90,4 +90,50 @@ message-container {
     height: 60px;
     border-radius: 4px;
     padding: 0 10px;
-    font-size: 14
+    font-size: 14px;
+    transition: border-color 0.3s;
+    background: #ffffff;
+    color: #333333;
+    border: none;
+}
+
+.send-icon {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#input-field:focus {
+    border-color: #333333;
+    outline: none;
+}
+
+#submit-button {
+    background-color: transparent;
+    border: none;
+}
+
+p[sentTime]:hover::after {    
+    content: attr(sentTime);
+    position: absolute;
+    top: -3px;
+    font-size: 14px;
+    color: gray;
+}
+
+.chatbot p[sentTime]:hover::after {  
+    left: 15px;
+}
+
+.user-message p[sentTime]:hover::after {  
+    right: 15px;
+}
+
+/* Styles for Aidan */
+#header {
+    background-color: #FF9814; /* Orange */
+}
+
+.chatbot-text {
+    background-color: #298ED6; /* Blue */
+    color: #ffffff; /* White */
+}
