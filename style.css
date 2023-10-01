@@ -20,7 +20,7 @@ body {
 }
 
 #header {
-    background-color: #298ED6;
+    background-color: darkslategrey;
     color: #ffffff;
     padding: 20px;
     font-size: 1em;
@@ -71,6 +71,7 @@ message-container {
 }
 
 .chatbot-text {
+    background-color: white;
     color: #333333;
     font-size: 1.1em;
     padding: 15px;
@@ -89,39 +90,4 @@ message-container {
     height: 60px;
     border-radius: 4px;
     padding: 0 10px;
-    font-size: 14px;
-    transition: border-color 0.3s;
-    background: #ffffff;
-    color: #333333;
-    border: none;
-}
-
-.send-icon {
-    margin-right: 10px;
-    cursor: pointer;
-}
-
-#input-field:focus {
-    border-color: #333333;
-    outline: none;
-}
-
-#submit-button {
-    background-color: transparent;
-    border: none;
-}
-
-p[sentTime]:hover::after {
-    content: attr(sentTime);
-    position: absolute;
-    top: -3px;
-    font-size: 14px;
-    color: gray;
-}
-
-.chatbot p[sentTime]:hover::after {
-    left: 15px;
-}
-
-.user-message p[sentTime]:hover::after {
-    right: 
+    font-size: 14
