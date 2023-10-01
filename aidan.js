@@ -36,29 +36,6 @@ function poserQuestion(question) {
     // Vous pouvez maintenant traiter la réponse de l'utilisateur
     // et poser la question suivante en fonction de sa réponse.
 
-    // Exemple : poser la question suivante
-    if (question === "Quel est votre prénom ?") {
-      poserQuestion(`Ravi de discuter avec toi, ${reponseUtilisateur}, on se tutoie !`);
-    } else if (question === `Ravi de discuter avec toi, ${reponseUtilisateur}, on se tutoie !`) {
-      poserQuestion(`Quel est ton nom, ${reponseUtilisateur} ?`);
-    } else if (question === `Quel est ton nom, ${reponseUtilisateur} ?`) {
-      poserQuestion(`Merci, ${reponseUtilisateur}, dans quel secteur exerces-tu ton activité ?`);
-    } else {
-      // Si le chatbot ne reconnaît pas la question, vous pouvez gérer cela ici.
-      ajouterMessage("chatbot", "Désolé, une erreur s'est produite. Pouvez-vous reformuler votre réponse ?");
-    }
-
-  // Ajouter un gestionnaire d'événements pour gérer la réponse de l'utilisateur
-  inputForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-    const reponseUtilisateur = inputField.value;
-
-    // Afficher la réponse de l'utilisateur dans la boîte de dialogue
-    ajouterMessage("user", reponseUtilisateur);
-
-    // Vous pouvez maintenant traiter la réponse de l'utilisateur
-    // et poser la question suivante en fonction de sa réponse.
-
     if (!userName) {
       // Si nous n'avons pas encore obtenu le prénom de l'utilisateur
       userName = reponseUtilisateur;
