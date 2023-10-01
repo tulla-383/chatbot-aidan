@@ -3,77 +3,37 @@ const chatbot = document.getElementById('chatbot');
 const conversation = document.getElementById('conversation');
 const inputForm = document.getElementById('input-form');
 const inputField = document.getElementById('input-field');
-const startButton = document.getElementById('start-button');
 
-// Message d'introduction général
-const introductionMessage = "Bienvenue sur notre site. Je suis Aidan, votre assistant virtuel. Mon objectif est de vous aider à trouver les solutions les mieux adaptées à votre métier. Pour ce faire, je vais vous poser quelques questions afin de mieux comprendre vos besoins. Prêt à commencer ?";
+// Message d'introduction du chatbot
+const introductionMessage = "Bonjour! Je suis Aidan, votre conseiller commercial virtuel. Je vais vous poser quelques questions pour mieux comprendre vos besoins.";
 
-// Afficher le message d'introduction sur la page
-function afficherIntroduction() {
-  const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit" });
-  const message = document.createElement('div');
-  message.classList.add('chatbot-message', 'chatbot');
-  message.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${introductionMessage}</p>`;
-  conversation.appendChild(message);
-  message.scrollIntoView({ behavior: "smooth" });
-}
-
-// Fonction pour poser une question à l'utilisateur
-function poserQuestion(question) {
-  // Afficher la question dans la boîte de dialogue d'Aidan
-  ajouterMessage("chatbot", question);
-
-  // Ajouter un gestionnaire d'événements pour gérer la réponse de l'utilisateur
-  inputForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-    const reponseUtilisateur = inputField.value;
-
-    // Afficher la réponse de l'utilisateur dans la boîte de dialogue
-    ajouterMessage("user", reponseUtilisateur);
-
-    // Vous pouvez maintenant traiter la réponse de l'utilisateur
-    // et poser la question suivante en fonction de sa réponse.
-
-    // Exemple : poser la question suivante
-    if (question === "Quel est votre prénom ?") {
-      poserQuestion(`Ravi de discuter avec toi, ${reponseUtilisateur} ! On se tutoie !`);
-    } if (question === `Ravi de discuter avec toi, ${reponseUtilisateur} ! On se tutoie !`) {
-      poserQuestion(`Merci, ${reponseUtilisateur}, dans quel domaine exerces-tu ton activité ?`);
-    } if (question === `Merci, ${reponseUtilisateur}, dans quel domaine exerces-tu ton activité ?`) {
-      poserQuestion(`Merci, ${reponseUtilisateur}, dans quelle ville es-tu situé ?`);
-    } else {
-      // Gérer la réponse ou poser d'autres questions ici.
-    }
-
-
-    // Effacer le champ de saisie
-    inputField.value = '';
-  });
-}
-
-// Fonction pour ajouter un message à la conversation
-function ajouterMessage(qui, message) {
-  const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit" });
-  const messageElement = document.createElement('div');
-  messageElement.classList.add('chatbot-message', qui + '-message');
-  messageElement.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${message}</p>`;
-  conversation.appendChild(messageElement);
-  messageElement.scrollIntoView({ behavior: "smooth" });
-}
-
-// Ajouter un gestionnaire d'événements au clic sur le bouton "Commencer"
-startButton.addEventListener('click', function() {
-  // Supprimer le bouton "Commencer" de la vue
-  startButton.style.display = 'none';
-
-  // Appeler la fonction pour commencer la série de questions
-  commencerQuestions();
+// Ajouter un gestionnaire d'événements au chargement de la page
+window.addEventListener('load', () => {
+    afficherMessageChatbot(introductionMessage);
 });
 
-// Appeler la fonction pour poser la première question au chargement de la page
-poserQuestion("Quel est votre prénom ?");
+// Ajouter un gestionnaire d'événements au formulaire
+inputForm.addEventListener('submit', function(event) {
+    event.preventDefault();
 
+    const userInput = inputField.value;
+    inputField.value = '';
+
+    // Gérer la réponse de l'utilisateur ici
+    traiterReponseUtilisateur(userInput);
+});
+
+// Fonction pour afficher un message du chatbot dans la conversation
+function afficherMessageChatbot(message) {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('chatbot-message', 'chatbot');
+    messageElement.innerHTML = `<p class="chatbot-text">${message}</p>`;
+    conversation.appendChild(messageElement);
+    messageElement.scrollIntoView({ behavior: "smooth" });
 }
 
-// Appeler cette fonction pour afficher le message d'introduction au chargement de la page
-afficherIntroduction();
+// Fonction pour gérer la réponse de l'utilisateur
+function traiterReponseUtilisateur(reponse) {
+    // TODO: Implémentez la logique de traitement des réponses de l'utilisateur ici
+    // Vous pouvez poser des questions supplémentaires et présenter des services en fonction des réponses.
+}
