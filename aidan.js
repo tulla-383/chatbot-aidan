@@ -34,16 +34,6 @@ function afficherMessageChatbot(message) {
     messageElement.scrollIntoView({ behavior: "smooth" });
 }
 
-// Fonction pour afficher un message de l'utilisateur dans la conversation
-function afficherMessageUtilisateur(message) {
-    const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit" });
-    const messageElement = document.createElement('div');
-    messageElement.classList.add('chatbot-message', 'user-message');
-    messageElement.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${message}</p>`;
-    conversation.appendChild(messageElement);
-    messageElement.scrollIntoView({ behavior: "smooth" });
-}
-
 // Fonction pour commencer la série de questions
 function commencerQuestions() {
     // Vous pouvez poser la première question ici
@@ -100,10 +90,21 @@ function poserQuestion(question) {
                     // Vous pouvez ajouter ici la logique pour collecter les coordonnées de l'utilisateur si nécessaire.
                     break;
             }
-            // La conversation peut se terminer ici, ou vous pouvez poser d'autres questions.
-        }
 
-        // Effacer le champ de saisie
-        inputField.value = '';
+            // Effacer le champ de saisie
+            inputField.value = '';
+        }
     });
+}
+
+// Fonction pour afficher un message de l'utilisateur dans la conversation
+function afficherMessageUtilisateur(message) {
+    const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit" });
+
+    // Afficher la réponse de l'utilisateur dans la boîte de dialogue d'Aidan
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('chatbot-message', 'user-message');
+    messageElement.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${message}</p>`;
+    conversation.appendChild(messageElement);
+    messageElement.scrollIntoView({ behavior: "smooth" });
 }
