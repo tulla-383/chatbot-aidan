@@ -51,9 +51,6 @@ function poserQuestion(question) {
     conversation.appendChild(message);
     message.scrollIntoView({ behavior: "smooth" });
 
-    // Mettre à jour la variable question
-    this.question = question;
-
     // Ajouter un gestionnaire d'événements pour gérer la réponse de l'utilisateur
     inputForm.addEventListener('submit', function(event) {
         event.preventDefault();
