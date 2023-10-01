@@ -70,10 +70,9 @@ startButton.addEventListener('click', function() {
   commencerQuestions();
 });
 
-// Fonction pour commencer la série de questions
-function commencerQuestions() {
-  // Vous pouvez poser la première question ici
-  poserQuestion("Quel est votre prénom ?");
+// Appeler la fonction pour poser la première question au chargement de la page
+poserQuestion("Quel est votre prénom ?");
+
 }
 
 // Appeler cette fonction pour afficher le message d'introduction au chargement de la page
