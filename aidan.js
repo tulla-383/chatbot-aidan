@@ -3,6 +3,7 @@ const chatbot = document.getElementById('chatbot');
 const conversation = document.getElementById('conversation');
 const inputForm = document.getElementById('input-form');
 const inputField = document.getElementById('input-field');
+const startButton = document.getElementById('start-button');
 
 // Message d'introduction général
 const introductionMessage = "Bienvenue sur notre site. Je suis Aidan, votre assistant virtuel. Mon objectif est de vous aider à trouver les solutions les mieux adaptées à votre métier. Pour ce faire, je vais vous poser quelques questions afin de mieux comprendre vos besoins. Prêt à commencer ?";
@@ -15,35 +16,6 @@ function afficherIntroduction() {
   message.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${introductionMessage}</p>`;
   conversation.appendChild(message);
   message.scrollIntoView({ behavior: "smooth" });
-}
-
-// Vérifier si l'utilisateur entre en contact pour la première fois
-let premierContact = true;
-
-// Gérer l'envoi du message d'introduction au premier contact
-function gererPremierContact() {
-  if (premierContact) {
-    afficherIntroduction();
-    premierContact = false;
-  }
-}
-
-// Récupérer le bouton "Commencer" par son identifiant
-const startButton = document.getElementById('start-button');
-
-// Ajouter un gestionnaire d'événements au clic sur le bouton
-startButton.addEventListener('click', function() {
-  // Supprimer le bouton "Commencer" de la vue
-  startButton.style.display = 'none';
-
-  // Appeler la fonction pour commencer la série de questions
-  commencerQuestions();
-});
-
-// Fonction pour commencer la série de questions
-function commencerQuestions() {
-  // Vous pouvez poser la première question ici
-  poserQuestion("Quel est votre secteur d'activité ?");
 }
 
 // Fonction pour poser une question à l'utilisateur
@@ -92,5 +64,20 @@ function ajouterMessage(qui, message) {
   messageElement.scrollIntoView({ behavior: "smooth" });
 }
 
+// Ajouter un gestionnaire d'événements au clic sur le bouton "Commencer"
+startButton.addEventListener('click', function() {
+  // Supprimer le bouton "Commencer" de la vue
+  startButton.style.display = 'none';
+
+  // Appeler la fonction pour commencer la série de questions
+  commencerQuestions();
+});
+
+// Fonction pour commencer la série de questions
+function commencerQuestions() {
+  // Vous pouvez poser la première question ici
+  poserQuestion("Quel est votre secteur d'activité ?");
+}
+
 // Appeler cette fonction pour afficher le message d'introduction au chargement de la page
-gererPremierContact();
+afficherIntroduction();
