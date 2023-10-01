@@ -46,11 +46,43 @@ function soumettreQuestion(event) {
   } else if (prenomUtilisateur && !nomUtilisateur) {
     // Répondre à la deuxième question
     nomUtilisateur = reponseUtilisateur;
-    ajouterMessage("chatbot", `Merci, ${nomUtilisateur}. Et maintenant, ${prenomUtilisateur}, tu exerces quelle activité ?`);
-  } else if (prenomUtilisateur && nomUtilisateur) {
+    ajouterMessage("chatbot", `Merci ! Et maintenant, ${prenomUtilisateur}, tu exerces quelle activité ?`);
+   } else if (prenomUtilisateur && nomUtilisateur) {
     // Répondre à la troisième question
-    ajouterMessage("chatbot", `C'est intéressant, ${prenomUtilisateur} exerce l'activité suivante : ${reponseUtilisateur}.`);
-    
+    if (
+      reponseUtilisateur === "restaurant" ||
+      reponseUtilisateur === "bistrot" ||
+      reponseUtilisateur === "brasserie" ||
+      reponseUtilisateur === "auberge" ||
+      reponseUtilisateur === "guinguette" ||
+      reponseUtilisateur === "créperie" ||
+      reponseUtilisateur === "bouchon" ||
+      reponseUtilisateur === "taverne" ||
+      reponseUtilisateur === "grill" ||
+      reponseUtilisateur === "cantine" ||
+      reponseUtilisateur === "boui-boui" ||
+      reponseUtilisateur === "snack" ||
+      reponseUtilisateur === "rôtisserie" ||
+      reponseUtilisateur === "café" ||
+      reponseUtilisateur === "trattoria" ||
+      reponseUtilisateur === "pizzeria" ||
+      reponseUtilisateur === "tiki bar" ||
+      reponseUtilisateur === "resto" ||
+      reponseUtilisateur === "cuisine locale" ||
+      reponseUtilisateur === "bungalow gourmand" ||
+      reponseUtilisateur === "échoppe" ||
+      reponseUtilisateur === "barbecue" ||
+      reponseUtilisateur === "cuisine de rue" ||
+      reponseUtilisateur === "traiteur" ||
+      reponseUtilisateur === "épicurienne" ||
+      reponseUtilisateur === "taque" ||
+      reponseUtilisateur === "table d'hôte" ||
+      reponseUtilisateur === "lolo" ||
+      reponseUtilisateur === "paillote" ||
+      reponseUtilisateur === "food truck"
+    ) {
+      ajouterMessage("chatbot", `C'est intéressant, ${prenomUtilisateur} exerce l'activité de ${reponseUtilisateur}.`);
+      ajouterMessage("chatbot", `Nous proposons plusieurs services pour les établissements ${reponseUtilisateur}. Comment puis-je vous aider ?`);
     // Vous pouvez maintenant traiter les réponses de l'utilisateur ou poursuivre la conversation selon votre logique.
   }
 
