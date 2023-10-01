@@ -54,9 +54,3 @@ function generateResponse(input) {
     // Retourne une réponse aléatoire
     return responses[Math.floor(Math.random() * responses.length)];
 }
-
-    
-    // Return a random response
-    return responses[Math.floor(Math.random() * responses.length)];
-  }
-  
