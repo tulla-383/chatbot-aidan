@@ -19,27 +19,25 @@ startButton.addEventListener('click', () => {
     startButton.style.display = 'none';
 
     // Commencer la série de questions
-    poserQuestion("Quel est votre prénom ?");
+    commencerQuestions();
 });
-
-// Fonction pour afficher un message de l'utilisateur dans la conversation
-function afficherMessageUtilisateur(message) {
-    const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit" });
-    const messageElement = document.createElement('div');
-    messageElement.classList.add('chatbot-message', 'user-message');
-    messageElement.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${message}</p>`;
-    conversation.appendChild(messageElement);
-    messageElement.scrollIntoView({ behavior: "smooth" });
-}
 
 // Fonction pour afficher un message du chatbot dans la conversation
 function afficherMessageChatbot(message) {
     const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit" });
+
+    // Afficher la question dans la boîte de dialogue d'Aidan
     const messageElement = document.createElement('div');
     messageElement.classList.add('chatbot-message', 'chatbot');
     messageElement.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${message}</p>`;
     conversation.appendChild(messageElement);
     messageElement.scrollIntoView({ behavior: "smooth" });
+}
+
+// Fonction pour commencer la série de questions
+function commencerQuestions() {
+    // Vous pouvez poser la première question ici
+    poserQuestion("Quel est votre prénom ?");
 }
 
 // Fonction pour poser une question à l'utilisateur
@@ -52,6 +50,9 @@ function poserQuestion(question) {
     message.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${question}</p>`;
     conversation.appendChild(message);
     message.scrollIntoView({ behavior: "smooth" });
+
+    // Mettre à jour la variable question
+    this.question = question;
 
     // Ajouter un gestionnaire d'événements pour gérer la réponse de l'utilisateur
     inputForm.addEventListener('submit', function(event) {
@@ -85,14 +86,4 @@ function poserQuestion(question) {
                     afficherMessageChatbot(`Pour les supermarchés et épiceries, nous proposons un chatbot pour répondre aux questions sur les horaires, la géolocalisation, les promotions du jour, le catalogue de produits et des recettes locales.`);
                     break;
                 default:
-                    afficherMessageChatbot(`Pour l'instant, nous n'intervenons pas sur ce secteur, mais nous recevons plusieurs demandes et allons l'envisager. Nous reviendrons rapidement vers vous si vous nous laissez vos coordonnées.`);
-                    // Vous pouvez ajouter ici la logique pour collecter les coordonnées de l'utilisateur si nécessaire.
-                    break;
-            }
-            // La conversation peut se terminer ici, ou vous pouvez poser d'autres questions.
-        }
-
-        // Effacer le champ de saisie
-        inputField.value = '';
-    });
-}
+                    afficherMessageChatbot(`Pour l'instant, nous n'intervenons pas sur ce secteur, mais nous recevons plusieurs demandes et allons l'envisager
