@@ -36,7 +36,6 @@ function commencerQuestions() {
     // Vous pouvez poser la première question ici
     poserQuestion("Quel est votre prénom ?");
 }
-
 // Fonction pour poser une question à l'utilisateur
 function poserQuestion(question) {
     const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit" });
