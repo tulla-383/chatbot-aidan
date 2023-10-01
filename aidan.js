@@ -37,8 +37,8 @@ function poserQuestion(question) {
    // Exemple : poser la question suivante
     if (question === "Quel est votre prénom ?") {
       poserQuestion(`Ravi de discuter avec toi, ${reponseUtilisateur} ! On se tutoie !`);
-    } else if (question === `Ravi de discuter avec toi, ${reponseUtilisateur} ! On se tutoie !`) {
-      poserQuestion(`Merci, ${reponseUtilisateur}, dans quel secteur exerces-tu ton activité ?`);
+    } else if (question === `Merci, ${reponseUtilisateur}, dans quel domaine exerces-tu ton activité ?`) {
+      poserQuestion(`Merci, ${reponseUtilisateur}, dans quel ville es-tu situé ?`);
     } else {
     // Gérer la réponse ou poser d'autres questions ici.
     }
