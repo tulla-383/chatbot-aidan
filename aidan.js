@@ -5,10 +5,8 @@ const inputForm = document.getElementById('input-form');
 const inputField = document.getElementById('input-field');
 const startButton = document.getElementById('start-button');
 
-let userName = ""; // Pour stocker le prénom de l'utilisateur
-
 // Message d'introduction général
-const introductionMessage = "Bienvenue sur notre site. Je suis Aidan, votre assistant virtuel. Mon objectif est de vous aider à trouver les solutions les mieux adaptées à votre métier.";
+const introductionMessage = "Bienvenue sur notre site. Je suis Aidan, votre assistant virtuel. Mon objectif est de vous aider à trouver les solutions les mieux adaptées à votre métier. Pour ce faire, je vais vous poser quelques questions afin de mieux comprendre vos besoins. Prêt à commencer ?";
 
 // Afficher le message d'introduction sur la page
 function afficherIntroduction() {
@@ -36,16 +34,15 @@ function poserQuestion(question) {
     // Vous pouvez maintenant traiter la réponse de l'utilisateur
     // et poser la question suivante en fonction de sa réponse.
 
-    if (!userName) {
-      // Si nous n'avons pas encore obtenu le prénom de l'utilisateur
-      userName = reponseUtilisateur;
-      poserQuestion(`Ravi de discuter avec toi, ${userName} ! On se tutoie !`);
-    } else if (!userName && reponseUtilisateur) {
-      // Si nous avons obtenu le prénom de l'utilisateur et nous attendons son nom
-      poserQuestion(`${userName}, quel est ton nom ?`);
+    // Exemple : poser la question suivante
+    if (question === "Quel est votre prénom ?") {
+      poserQuestion(`Ravi de discuter avec toi, ${reponseUtilisateur} ! On se tutoie !`);
+    } else if (question === `Ravi de discuter avec toi, ${reponseUtilisateur} ! On se tutoie !`) {
+      poserQuestion(`Quel est ton nom, ${reponseUtilisateur} ?`);
+    } else if (question === `Quel est ton nom, ${reponseUtilisateur} ?`) {
+      poserQuestion(`Merci, ${reponseUtilisateur}, dans quel secteur exerces-tu ton activité ?`);
     } else {
-      // Si nous avons le nom de l'utilisateur, nous pouvons poser la question suivante
-      poserQuestion(`Merci, ${userName} ! Dans quel secteur exerces-tu ton activité ?`);
+      // Gérer la réponse ou poser d'autres questions ici.
     }
 
     // Effacer le champ de saisie
@@ -75,7 +72,7 @@ startButton.addEventListener('click', function() {
 // Fonction pour commencer la série de questions
 function commencerQuestions() {
   // Vous pouvez poser la première question ici
-  poserQuestion("Quel est ton prénom ?");
+  poserQuestion("Quel est votre prénom ?");
 }
 
 // Appeler cette fonction pour afficher le message d'introduction au chargement de la page
