@@ -1,32 +1,27 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aidan</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="chatbot-container">
-        <div id="header">
-            <h1>Aidan</h1>
-        </div>
         <div id="chatbot">
+            <div id="header">
+                <!-- Header content here -->
+            </div>
             <div id="conversation">
-                <!-- Messages du chatbot vont ici -->
+                <!-- Conversation messages here -->
             </div>
             <form id="input-form">
-                <message-container>
-                    <input id="input-field" class="input-field" type="text" placeholder="Tapez votre message ici" required>
-                    <button id="submit-button" type="submit">  
-                    </button>
-                    <button id="start-button" type="button">OK</button> <!-- Bouton "OK" pour commencer -->
-                </message-container>
+                <input type="text" id="input-field" placeholder="Tapez votre message ici">
+                <button type="submit" id="submit-button">Envoyer</button>
             </form>
-        </div>  
+        </div>
     </div>
-
-    <script src="aidan.js"></script>
+    <button id="start-button">Démarrer</button>
+    <script src="script.js"></script>
 </body>
 </html>
