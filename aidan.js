@@ -17,7 +17,14 @@ function afficherIntroduction() {
   message.scrollIntoView({ behavior: "smooth" });
 }
 
+// Vérifier si l'utilisateur entre en contact pour la première fois
+let premierContact = true;
 
+// Gérer l'envoi du message d'introduction au premier contact
+function gererPremierContact() {
+  if (premierContact) {
+    afficherIntroduction();
+    premierContact = false;
   }
 }
 
