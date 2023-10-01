@@ -71,33 +71,28 @@ startButton.addEventListener('click', function() {
 
 // Fonction pour commencer la série de questions
 function commencerQuestions() {
-  // Poser la première question à l'utilisateur
+  // Vous pouvez maintenant poser des questions spécifiques à l'utilisateur et collecter ses réponses.
+  // Par exemple, commencez par demander son secteur d'activité.
   const secteurActivite = prompt("Quel est votre secteur d'activité ?");
-
-  // Vous pouvez maintenant traiter la réponse de l'utilisateur
+  
   if (secteurActivite) {
-    // Si l'utilisateur a répondu, vous pouvez continuer à poser des questions en fonction de sa réponse
+    // Vous pouvez continuer à poser des questions en fonction de la réponse de l'utilisateur ici.
     if (secteurActivite === "restaurant") {
-      // Posez des questions spécifiques aux restaurants
       const nomRestaurant = prompt("Quel est le nom de votre restaurant ?");
       const descriptionMenu = prompt("Pouvez-vous décrire votre menu ?");
-      // ... Continuer avec d'autres questions pour les restaurants ...
+      // Continuez avec d'autres questions pour les restaurants...
     } else if (secteurActivite === "airbnb") {
-      // Posez des questions spécifiques aux propriétaires Airbnb
-      // ...
+      // Posez des questions spécifiques aux propriétaires Airbnb...
     } else if (secteurActivite === "location de voitures") {
-      // Posez des questions spécifiques aux loueurs de voitures
-      // ...
+      // Posez des questions spécifiques aux loueurs de voitures...
     } else if (secteurActivite === "supermarché") {
-      // Posez des questions spécifiques aux supermarchés
-      // ...
+      // Posez des questions spécifiques aux supermarchés...
     } else {
-      // Si le secteur d'activité n'est pas reconnu, vous pouvez gérer cela ici
+      // Si le secteur d'activité n'est pas reconnu, vous pouvez gérer cela ici.
       alert("Désolé, nous ne prenons pas encore en charge ce secteur d'activité, mais nous prendrons en compte votre demande !");
     }
   }
 }
-
 
 // Appeler cette fonction pour afficher le message d'introduction au chargement de la page
 gererPremierContact();
