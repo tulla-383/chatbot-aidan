@@ -4,35 +4,6 @@ const conversation = document.getElementById('conversation');
 const inputForm = document.getElementById('input-form');
 const inputField = document.getElementById('input-field');
 
-// Add event listener to input form
-inputForm.addEventListener('submit', function(event) {
-  // Prevent form submission
-  event.preventDefault();
-
-  // Get user input
-  const input = inputField.value;
-
-  // Clear input field
-  inputField.value = '';
-  const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit" });
-
-  // Add user input to conversation
-  let message = document.createElement('div');
-  message.classList.add('chatbot-message', 'user-message');
-  message.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${input}</p>`;
-  conversation.appendChild(message);
-
-  // Generate chatbot response
-  const response = generateResponse(input);
-
-  // Add chatbot response to conversation
-  message = document.createElement('div');
-  message.classList.add('chatbot-message','chatbot');
-  message.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${response}</p>`;
-  conversation.appendChild(message);
-  message.scrollIntoView({behavior: "smooth"});
-});
-
 // Message d'introduction général
 const introductionMessage = "Bienvenue sur notre site. Je suis Aidan, votre assistant virtuel. Mon objectif est de vous aider à trouver les solutions les mieux adaptées à votre métier. Pour ce faire, je vais vous poser quelques questions afin de mieux comprendre vos besoins. Prêt à commencer ?";
 
@@ -110,7 +81,15 @@ function poserQuestion(question) {
     inputField.value = '';
   });
 }
-  }
+
+// Fonction pour ajouter un message à la conversation
+function ajouterMessage(qui, message) {
+  const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit" });
+  const messageElement = document.createElement('div');
+  messageElement.classList.add('chatbot-message', qui + '-message');
+  messageElement.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${message}</p>`;
+  conversation.appendChild(messageElement);
+  messageElement.scrollIntoView({ behavior: "smooth" });
 }
 
 // Appeler cette fonction pour afficher le message d'introduction au chargement de la page
