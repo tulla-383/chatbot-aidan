@@ -1,45 +1,50 @@
 body {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100vh; /* Utilisation de la hauteur de la vue (viewport height) pour centrer verticalement */
+    background-color: #f5f5f5; /* Couleur de fond */
+    margin: 0; /* Suppression des marges par défaut */
 }
 
 .chatbot-container {
-    width: 500px;
-    margin: 0 auto;
-    background-color: #f5f5f5;
+    width: 100%;
+    max-width: 500px; /* Largeur maximale de la fenêtre du chatbot */
+    background-color: #000000; /* Couleur de fond */
     border: 1px solid #cccccc;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #chatbot {
-    background-color: #f5f5f5;
+    background-color: #000000; /* Couleur de fond */
     border: 1px solid #eef1f5;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
     border-radius: 4px;
 }
 
 #header {
-    background-color: darkslategrey;
-    color: #ffffff;
+    background-color: #298ED6; /* Couleur de fond de l'en-tête */
+    color: #000000; /* Couleur du texte de l'en-tête */
     padding: 20px;
     font-size: 1em;
     font-weight: bold;
 }
 
 message-container {
-    background: #ffffff;
+    background: #000000; /* Couleur de fond de la zone de message */
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
 #conversation {
-    height: 500px;
-    overflow-y: auto;
+    overflow-y: auto; /* Barre de défilement vertical si le contenu dépasse */
     padding: 20px;
     display: flex;
     flex-direction: column;
+    gap: 10px; /* Espacement entre les messages */
 }
 
 @keyframes message-fade-in {
@@ -62,8 +67,8 @@ message-container {
     border-radius: 20px;
     word-wrap: break-word;
     white-space: pre-wrap;
-    max-width: 100%;
-    padding: 0 15px;
+    max-width: 80%; /* Largeur maximale des messages */
+    padding: 10px 15px; /* Réduire la marge */
 }
 
 .user-message {
@@ -71,12 +76,11 @@ message-container {
 }
 
 .chatbot-text {
-    background-color: white;
-    color: #333333;
+    color: #000000; /* Couleur du texte du message */
     font-size: 1.1em;
-    padding: 15px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFF; /* Couleur de fond des messages */
 }
 
 #input-form {
@@ -92,19 +96,9 @@ message-container {
     padding: 0 10px;
     font-size: 14px;
     transition: border-color 0.3s;
-    background: #ffffff;
-    color: #333333;
+    background: #FFFFFF; /* Couleur de fond de la zone de texte */
+    color: #000000; /* Couleur du texte de la zone de texte */
     border: none;
-}
-
-.send-icon {
-    margin-right: 10px;
-    cursor: pointer;
-}
-
-#input-field:focus {
-    border-color: #333333;
-    outline: none;
 }
 
 #submit-button {
@@ -112,7 +106,7 @@ message-container {
     border: none;
 }
 
-p[sentTime]:hover::after {    
+p[sentTime]:hover::after {
     content: attr(sentTime);
     position: absolute;
     top: -3px;
@@ -120,20 +114,10 @@ p[sentTime]:hover::after {
     color: gray;
 }
 
-.chatbot p[sentTime]:hover::after {  
+.chatbot p[sentTime]:hover::after {
     left: 15px;
 }
 
-.user-message p[sentTime]:hover::after {  
+.user-message p[sentTime]:hover::after {
     right: 15px;
-}
-
-/* Styles for Aidan */
-#header {
-    background-color: #FF9814; /* Orange */
-}
-
-.chatbot-text {
-    background-color: #298ED6; /* Blue */
-    color: #ffffff; /* White */
 }
