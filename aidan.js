@@ -47,7 +47,7 @@ function soumettreQuestion(event) {
     // Répondre à la deuxième question
     nomUtilisateur = reponseUtilisateur;
     ajouterMessage("chatbot", `Merci ! Et maintenant, ${prenomUtilisateur}, tu exerces quelle activité ?`);
-   } else if (prenomUtilisateur && nomUtilisateur) {
+  } else if (prenomUtilisateur && nomUtilisateur) {
     // Répondre à la troisième question
     if (
       reponseUtilisateur === "restaurant" ||
