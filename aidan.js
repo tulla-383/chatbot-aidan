@@ -71,15 +71,33 @@ startButton.addEventListener('click', function() {
 
 // Fonction pour commencer la série de questions
 function commencerQuestions() {
-  // Vous pouvez ajouter ici la logique pour poser des questions à l'utilisateur
-  // Par exemple, vous pouvez poser la première question sur son secteur d'activité
-  // et ensuite continuer à poser des questions en fonction de sa réponse.
-  // Vous pouvez utiliser la boîte de dialogue prompt pour collecter les réponses de l'utilisateur.
-  // Une fois que vous avez toutes les réponses, vous pouvez les traiter pour aider l'utilisateur.
-  // N'oubliez pas de mettre à jour la conversation avec les questions et les réponses.
+  // Poser la première question à l'utilisateur
+  const secteurActivite = prompt("Quel est votre secteur d'activité ?");
+
+  // Vous pouvez maintenant traiter la réponse de l'utilisateur
+  if (secteurActivite) {
+    // Si l'utilisateur a répondu, vous pouvez continuer à poser des questions en fonction de sa réponse
+    if (secteurActivite === "restaurant") {
+      // Posez des questions spécifiques aux restaurants
+      const nomRestaurant = prompt("Quel est le nom de votre restaurant ?");
+      const descriptionMenu = prompt("Pouvez-vous décrire votre menu ?");
+      // ... Continuer avec d'autres questions pour les restaurants ...
+    } else if (secteurActivite === "airbnb") {
+      // Posez des questions spécifiques aux propriétaires Airbnb
+      // ...
+    } else if (secteurActivite === "location de voitures") {
+      // Posez des questions spécifiques aux loueurs de voitures
+      // ...
+    } else if (secteurActivite === "supermarché") {
+      // Posez des questions spécifiques aux supermarchés
+      // ...
+    } else {
+      // Si le secteur d'activité n'est pas reconnu, vous pouvez gérer cela ici
+      alert("Désolé, nous ne prenons pas encore en charge ce secteur d'activité, mais nous prendrons en compte votre demande !");
+    }
+  }
 }
 
-// ...
 
 // Appeler cette fonction pour afficher le message d'introduction au chargement de la page
 gererPremierContact();
