@@ -51,9 +51,6 @@ function poserQuestion(question) {
     conversation.appendChild(message);
     message.scrollIntoView({ behavior: "smooth" });
 
-    // Mettre à jour la variable question
-    this.question = question;
-
     // Ajouter un gestionnaire d'événements pour gérer la réponse de l'utilisateur
     inputForm.addEventListener('submit', function(event) {
         event.preventDefault();
@@ -86,4 +83,14 @@ function poserQuestion(question) {
                     afficherMessageChatbot(`Pour les supermarchés et épiceries, nous proposons un chatbot pour répondre aux questions sur les horaires, la géolocalisation, les promotions du jour, le catalogue de produits et des recettes locales.`);
                     break;
                 default:
-                    afficherMessageChatbot(`Pour l'instant, nous n'intervenons pas sur ce secteur, mais nous recevons plusieurs demandes et allons l'envisager
+                    afficherMessageChatbot(`Pour l'instant, nous n'intervenons pas sur ce secteur, mais nous recevons plusieurs demandes et allons l'envisager.`);
+                    // Vous pouvez ajouter ici la logique pour collecter les coordonnées de l'utilisateur si nécessaire.
+                    break;
+            }
+            // La conversation peut se terminer ici, ou vous pouvez poser d'autres questions.
+        }
+
+        // Effacer le champ de saisie
+        inputField.value = '';
+    });
+}
