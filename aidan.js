@@ -30,12 +30,6 @@ function afficherMessageChatbot(message) {
     conversation.appendChild(messageElement);
     messageElement.scrollIntoView({ behavior: "smooth" });
 }
-
-// Fonction pour commencer la série de questions
-function commencerQuestions() {
-    // Vous pouvez poser la première question ici
-    poserQuestion("Quel est votre prénom ?");
-}
 // Fonction pour poser une question à l'utilisateur
 function poserQuestion(question) {
     const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit" });
@@ -63,27 +57,31 @@ function poserQuestion(question) {
         } else if (question === "Quel est votre nom ?") {
             afficherMessageChatbot(`Merci, ${reponseUtilisateur} !`);
             poserQuestion(`${reponseUtilisateur}, dans quel secteur exercez-vous votre activité ?\n1) Restaurant, food truck, pizzeria, snack, bistrot, brasserie\n2) Propriétaire de locations saisonnières, Airbnb, location saisonnière\n3) Loueur de voitures, location de voiture\n4) Supermarchés, épiceries`);
-        } else if (question.endsWith("dans quel secteur exercez-vous votre activité ?")) {
+        } else if (question.includes("dans quel secteur exercez-vous votre activité ?")) {
             // Logique pour présenter les services en fonction de la réponse du secteur
             switch (reponseUtilisateur) {
                 case "1":
                     afficherMessageChatbot(`Pour les restaurants, food trucks, pizzerias, snacks, bistrots et brasseries, nous proposons la création d'un chatbot pour répondre aux demandes de vos clients. Il peut gérer les horaires d'ouverture, le plat du jour, le menu, les réservations et les remarques directes au propriétaire.`);
+                    // La conversation peut se terminer ici, ou vous pouvez poser d'autres questions.
                     break;
                 case "2":
                     afficherMessageChatbot(`Pour les propriétaires de locations saisonnières, Airbnb et locations saisonnières, nous proposons la création d'un chatbot pour répondre aux questions des touristes. Il peut fournir des informations sur la géolocalisation, le code du portail, le fonctionnement des équipements et les contacts en cas de besoin.`);
+                    // La conversation peut se terminer ici, ou vous pouvez poser d'autres questions.
                     break;
                 case "3":
                     afficherMessageChatbot(`Pour les loueurs de voitures et la location de voiture, nous proposons la création d'un chatbot pour répondre aux questions des clients. Il peut fournir des informations sur la géolocalisation, les horaires, les procédures de retour et les conditions de location.`);
+                    // La conversation peut se terminer ici, ou vous pouvez poser d'autres questions.
                     break;
                 case "4":
                     afficherMessageChatbot(`Pour les supermarchés et épiceries, nous proposons un chatbot pour répondre aux questions sur les horaires, la géolocalisation, les promotions du jour, le catalogue de produits et des recettes locales.`);
+                    // La conversation peut se terminer ici, ou vous pouvez poser d'autres questions.
                     break;
                 default:
                     afficherMessageChatbot(`Pour l'instant, nous n'intervenons pas sur ce secteur, mais nous recevons plusieurs demandes et allons l'envisager. Nous reviendrons rapidement vers vous si vous nous laissez vos coordonnées.`);
                     // Vous pouvez ajouter ici la logique pour collecter les coordonnées de l'utilisateur si nécessaire.
+                    // La conversation peut se terminer ici, ou vous pouvez poser d'autres questions.
                     break;
             }
-            // La conversation peut se terminer ici, ou vous pouvez poser d'autres questions.
         }
 
         // Effacer le champ de saisie
