@@ -79,6 +79,5 @@ function gererPremierContact() {
   }
 }
 
-// Ajouter cet appel de fonction à l'endroit où vous gérez l'interaction avec l'utilisateur
-// Par exemple, lorsque l'utilisateur clique sur le bouton de chat ou entre en contact pour la première fois.
+// Appeler cette fonction lorsque l'utilisateur est prêt à commencer
 gererPremierContact();
