@@ -35,39 +35,8 @@ function poserQuestion(question) {
     // et poser la question suivante en fonction de sa réponse.
 
     // Exemple : poser la question suivante
-    if (
-      reponseUtilisateur === "restaurant" ||
-      reponseUtilisateur === "bistrot" ||
-      reponseUtilisateur === "brasserie" ||
-      reponseUtilisateur === "auberge" ||
-      reponseUtilisateur === "guinguette" ||
-      reponseUtilisateur === "créperie" ||
-      reponseUtilisateur === "bouchon" ||
-      reponseUtilisateur === "taverne" ||
-      reponseUtilisateur === "grill" ||
-      reponseUtilisateur === "cantine" ||
-      reponseUtilisateur === "boui-boui" ||
-      reponseUtilisateur === "snack" ||
-      reponseUtilisateur === "rôtisserie" ||
-      reponseUtilisateur === "café" ||
-      reponseUtilisateur === "trattoria" ||
-      reponseUtilisateur === "pizzeria" ||
-      reponseUtilisateur === "tiki bar" ||
-      reponseUtilisateur === "resto" ||
-      reponseUtilisateur === "cuisine locale" ||
-      reponseUtilisateur === "bungalow gourmand" ||
-      reponseUtilisateur === "échoppe" ||
-      reponseUtilisateur === "barbecue" ||
-      reponseUtilisateur === "cuisine de rue" ||
-      reponseUtilisateur === "traiteur" ||
-      reponseUtilisateur === "épicurienne" ||
-      reponseUtilisateur === "taque" ||
-      reponseUtilisateur === "table d'hôte" ||
-      reponseUtilisateur === "lolo" ||
-      reponseUtilisateur === "paillote" ||
-      reponseUtilisateur === "food truck"
-    ) {
-      poserQuestion("Quel est le nom de votre établissement ?");
+    if (reponseUtilisateur === "restaurant") {
+      poserQuestion("Quel est le nom de votre restaurant ?");
     } else if (reponseUtilisateur === "airbnb") {
       // Poser des questions spécifiques aux propriétaires Airbnb...
     } else if (reponseUtilisateur === "location de voitures") {
@@ -107,7 +76,7 @@ startButton.addEventListener('click', function() {
 // Fonction pour commencer la série de questions
 function commencerQuestions() {
   // Vous pouvez poser la première question ici
-  poserQuestion("Quel est votre Prénom ?");
+  poserQuestion("Quel est votre secteur d'activité ?");
 }
 
 // Appeler cette fonction pour afficher le message d'introduction au chargement de la page
