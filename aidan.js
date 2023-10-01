@@ -6,20 +6,19 @@ const inputField = document.getElementById('input-field');
 const startButton = document.getElementById('start-button');
 
 // Message d'introduction général
-const introductionMessage = "Bienvenue sur notre site. Je suis Aidan, votre assistant virtuel. Mon objectif est de vous aider à trouver les solutions les mieux adaptées à votre métier. Pour ce faire, je vais vous poser quelques questions afin de mieux comprendre vos besoins. Prêt à commencer ?";
+const introductionMessage = "Bienvenue sur notre site. Je suis Aidan, votre assistant virtuel. Mon objectif est de vous aider à trouver les solutions les mieux adaptées à votre métier. Prêt à commencer ?";
 
 // Variable pour stocker le prénom et le nom de l'utilisateur
 let prenomUtilisateur = "";
 let nomUtilisateur = "";
 
 // Afficher le message d'introduction sur la page
-function afficherIntroduction() {
-  const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit" });
-  const message = document.createElement('div');
-  message.classList.add('chatbot-message', 'chatbot');
-  message.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${introductionMessage}</p>`;
-  conversation.appendChild(message);
-  message.scrollIntoView({ behavior: "smooth" });
+function afficherAccueil() {
+  // Créer le message d'accueil
+  const messageAccueil = "Bienvenue sur notre site. Je suis Aidan, votre assistant virtuel. Mon objectif est de vous aider à trouver les solutions les mieux adaptées à votre métier. Prêt à commencer ?";
+  
+  // Ajouter le message d'accueil à la conversation
+  ajouterMessage("chatbot", messageAccueil);
 }
 
 // Fonction pour poser une question à l'utilisateur
@@ -47,7 +46,7 @@ function soumettreQuestion(event) {
     // Répondre à la deuxième question
     nomUtilisateur = reponseUtilisateur;
     ajouterMessage("chatbot", `Merci ! Et maintenant, ${prenomUtilisateur}, tu exerces quelle activité ?`);
-  } else if (prenomUtilisateur && nomUtilisateur) {
+   } else if (prenomUtilisateur && nomUtilisateur) {
     // Répondre à la troisième question
     if (
       reponseUtilisateur === "restaurant" ||
@@ -100,9 +99,9 @@ function ajouterMessage(qui, message) {
   messageElement.scrollIntoView({ behavior: "smooth" });
 }
 
-// Ajouter un gestionnaire d'événements au clic sur le bouton "Commencer"
+// Ajouter un gestionnaire d'événements au clic sur le bouton "OK" pour commencer
 startButton.addEventListener('click', function() {
-  // Supprimer le bouton "Commencer" de la vue
+  // Supprimer le bouton "OK" de la vue
   startButton.style.display = 'none';
 
   // Appeler la fonction pour commencer la série de questions
@@ -115,5 +114,5 @@ function commencerQuestions() {
   poserQuestion("Quel est votre prénom ?");
 }
 
-// Appeler cette fonction pour afficher le message d'introduction au chargement de la page
-afficherIntroduction();
+// Appeler cette fonction pour afficher le message d'accueil au chargement de la page
+afficherAccueil();
