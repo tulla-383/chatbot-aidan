@@ -63,9 +63,9 @@ if (
   reponseUtilisateur === "épicurienne" ||
   reponseUtilisateur === "taque" ||
   reponseUtilisateur === "table d'hôte" ||
-  reponseUtilisateur === "cabane à sucre" ||
+  reponseUtilisateur === "lolo" ||
   reponseUtilisateur === "paillote" ||
-  reponseUtilisateur === "camion gourmand"
+  reponseUtilisateur === "food truck"
 ) {
   poserQuestion("Quel est le nom de votre établissement ?");
 }
