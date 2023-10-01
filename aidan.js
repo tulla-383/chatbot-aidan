@@ -5,8 +5,10 @@ const inputForm = document.getElementById('input-form');
 const inputField = document.getElementById('input-field');
 const startButton = document.getElementById('start-button');
 
+let userName = ""; // Pour stocker le prénom de l'utilisateur
+
 // Message d'introduction général
-const introductionMessage = "Bienvenue sur notre site. Je suis Aidan, votre assistant virtuel. Mon objectif est de vous aider à trouver les solutions les mieux adaptées à votre métier. Pour ce faire, je vais vous poser quelques questions afin de mieux comprendre vos besoins. Prêt à commencer ?";
+const introductionMessage = "Bienvenue sur notre site. Je suis Aidan, votre assistant virtuel. Mon objectif est de vous aider à trouver les solutions les mieux adaptées à votre métier.";
 
 // Afficher le message d'introduction sur la page
 function afficherIntroduction() {
@@ -34,19 +36,16 @@ function poserQuestion(question) {
     // Vous pouvez maintenant traiter la réponse de l'utilisateur
     // et poser la question suivante en fonction de sa réponse.
 
-    // Exemple : poser la question suivante
-    if (reponseUtilisateur === "restaurant") {
-      poserQuestion("Quel est le nom de votre restaurant ?");
-    } else if (reponseUtilisateur === "airbnb") {
-      // Poser des questions spécifiques aux propriétaires Airbnb...
-    } else if (reponseUtilisateur === "location de voitures") {
-      // Poser des questions spécifiques aux loueurs de voitures...
-    } else if (reponseUtilisateur === "supermarché") {
-      // Poser des questions spécifiques aux supermarchés...
+    if (!userName) {
+      // Si nous n'avons pas encore obtenu le prénom de l'utilisateur
+      userName = reponseUtilisateur;
+      poserQuestion(`Ravi de discuter avec toi, ${userName} ! On se tutoie !`);
+    } else if (!userName && reponseUtilisateur) {
+      // Si nous avons obtenu le prénom de l'utilisateur et nous attendons son nom
+      poserQuestion(`${userName}, quel est ton nom ?`);
     } else {
-      // Si le secteur d'activité n'est pas reconnu, vous pouvez gérer cela ici.
-      ajouterMessage("chatbot", "Désolé, nous ne prenons pas encore en charge ce secteur d'activité, mais nous prendrons en compte votre demande !");
-      // Poser une question différente ou terminer la conversation, selon votre logique.
+      // Si nous avons le nom de l'utilisateur, nous pouvons poser la question suivante
+      poserQuestion(`Merci, ${userName} ! Dans quel secteur exerces-tu ton activité ?`);
     }
 
     // Effacer le champ de saisie
@@ -76,7 +75,7 @@ startButton.addEventListener('click', function() {
 // Fonction pour commencer la série de questions
 function commencerQuestions() {
   // Vous pouvez poser la première question ici
-  poserQuestion("Quel est votre secteur prénom ?");
+  poserQuestion("Quel est ton prénom ?");
 }
 
 // Appeler cette fonction pour afficher le message d'introduction au chargement de la page
