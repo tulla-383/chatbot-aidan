@@ -76,7 +76,7 @@ startButton.addEventListener('click', function() {
 // Fonction pour commencer la série de questions
 function commencerQuestions() {
   // Vous pouvez poser la première question ici
-  poserQuestion("Quel est votre secteur d'activité ?");
+  poserQuestion("Quel est votre secteur prénom ?");
 }
 
 // Appeler cette fonction pour afficher le message d'introduction au chargement de la page
