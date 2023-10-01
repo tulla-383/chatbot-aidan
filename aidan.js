@@ -79,5 +79,29 @@ function gererPremierContact() {
   }
 }
 
-// Appeler cette fonction lorsque l'utilisateur est prêt à commencer
+// Récupérer le bouton "Commencer" par son identifiant
+const startButton = document.getElementById('start-button');
+
+// Ajouter un gestionnaire d'événements au clic sur le bouton
+startButton.addEventListener('click', function() {
+  // Supprimer le bouton "Commencer" de la vue
+  startButton.style.display = 'none';
+
+  // Appeler la fonction pour commencer la série de questions
+  commencerQuestions();
+});
+
+// Fonction pour commencer la série de questions
+function commencerQuestions() {
+  // Vous pouvez ajouter ici la logique pour poser des questions à l'utilisateur
+  // Par exemple, vous pouvez poser la première question sur son secteur d'activité
+  // et ensuite continuer à poser des questions en fonction de sa réponse.
+  // Vous pouvez utiliser la boîte de dialogue prompt pour collecter les réponses de l'utilisateur.
+  // Une fois que vous avez toutes les réponses, vous pouvez les traiter pour aider l'utilisateur.
+  // N'oubliez pas de mettre à jour la conversation avec les questions et les réponses.
+}
+
+// ...
+
+// Appeler cette fonction pour afficher le message d'introduction au chargement de la page
 gererPremierContact();
